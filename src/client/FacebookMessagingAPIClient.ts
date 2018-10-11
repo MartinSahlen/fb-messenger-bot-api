@@ -217,12 +217,14 @@ export class FacebookMessagingAPIClient {
 
   private sendDisplayMessage(id: string, payload: MessagePayload, cb?: Function) {
     const options = this.generateBasicRequestPayload(id);
+    // @ts-ignore
     options.json.message = payload;
     return Utils.sendMessage(options, this.requestData, cb);
   }
 
   private sendAction(id: string, payload: string, cb?: Function) {
     const options = this.generateBasicRequestPayload(id);
+    // @ts-ignore
     options.json.sender_action = payload;
     return Utils.sendMessage(options, this.requestData, cb);
   }
